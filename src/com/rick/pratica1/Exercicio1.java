@@ -10,13 +10,13 @@ import org.jgrapht.Graph;
 import org.jgrapht.graph.SimpleGraph;
 
 /**
- * Classe responsável pela resolução da questão 1(1º lista de exerícios praticas) da disciplina
+ * Classe responsável pela resolução da questão 1(1º lista de exerício pratica) da disciplina
  * Teoria dos grafos.
  * 
  * @author Rich Elton - 117210710
  *
  */
-public class Exercicios1 {
+public class Exercicio1 {
 
 	/**
 	 * Método principal.

@@ -6,13 +6,13 @@ import org.jgrapht.graph.DefaultWeightedEdge;
 import org.jgrapht.graph.SimpleWeightedGraph;
 
 /**
- * Classe responsável por resolver a questão 2(1º lista de exerícios praticas) da disciplina
+ * Classe responsável por resolver a questão 2(1º lista de exerício pratica) da disciplina
  * de teoria dos grafos.
  * 
  * @author Rich Elton - 117210710
  *
  */
-public class Exercicios2 {
+public class Exercicio2 {
 	
 	/**
 	 * Método principal.
