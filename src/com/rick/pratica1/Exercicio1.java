@@ -1,5 +1,9 @@
 package com.rick.pratica1;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -23,8 +27,7 @@ public class Exercicio1 {
 	 * 
 	 * @param args : Nunca é usado.
 	 */
-	public static void main(String[] args) {
-		
+	public static void main(String[] args) throws Exception {
 		/**
 		 * Chamo a função que vai criar e retornar meu grafo.
 		 */
@@ -34,14 +37,18 @@ public class Exercicio1 {
 		 * Chama a função que vai procurar minha matriz de incidência.
 		 */
 		achaMatrizIncidencia(grafo);
+		
+		System.out.println("Terminou!");
+		System.out.println("Verifique o arquivo 'exercicio1.txt' na pasta arquivos.");
 	}
 	
 	/**
 	 * Método que vai achar minha matriz incidência de um grafo.
 	 * 
 	 * @param g : Grafo na qual eu quero achar a matriz de incidência.
+	 * @throws IOException 
 	 */
-	private static void achaMatrizIncidencia(Graph<String, DefaultEdge> g) {
+	private static void achaMatrizIncidencia(Graph<String, DefaultEdge> g) throws IOException {
 		
 		/**
 		 * Lista de arestas.
@@ -75,13 +82,14 @@ public class Exercicio1 {
 	}
 	
 	/**
-	 * Método que vai imprimir minha matriz de incidência.
+	 * Método que vai escrever minha matriz de incidência no meu arquivo 'exercicio1.txt'.
 	 * @param g : Graph<String, DefaultEdge>.
 	 * @param listaVertices : List<String>.
 	 * @param iterator : Iterator<DefaultEdge>.
+	 * @throws IOException 
 	 */
 	private static void constroiMatriz(Graph<String, DefaultEdge> g, List<String> listaVertices,
-			Iterator<DefaultEdge> iterator) {
+			Iterator<DefaultEdge> iterator) throws IOException {
 		
 		List<DefaultEdge> arestas = new ArrayList<DefaultEdge>();
 		/**
@@ -92,14 +100,22 @@ public class Exercicio1 {
 		}
 		
 		/**
-		 * Imprimo o inicio e o fim de cada aresta do meu grafo.
+		 * Pego o caminho até o meu projeto e concateno com a pasta do meu arquivo. 
+		 */
+		String caminho = new File("").getAbsolutePath()+"/arquivos/exercicio1.txt";
+		File fl = new File(caminho);
+		FileWriter fw = new FileWriter(fl);
+		BufferedWriter bw = new BufferedWriter(fw);
+		
+		/**
+		 * Escrevo no meu arquivo o inicio e o fim de cada aresta do meu grafo.
 		 */
 		for(DefaultEdge aresta : g.edgeSet()) {
 			String inicio = g.getEdgeSource(aresta);
 			String fim = g.getEdgeTarget(aresta);
-			System.out.print("  |" + inicio+fim);
+			bw.write("  |" + inicio+fim);
 		}
-		System.out.println("");
+		bw.newLine();
 		
 		/**
 		 * Pego cada vertice e cada aresta(inicio e fim) e comparo se um dos terminais da
@@ -107,18 +123,20 @@ public class Exercicio1 {
 		 * Se for, imprimo "1", caso contrário imprimo "0".
 		 */
 		for(String v : listaVertices) {
-			System.out.print(v + " |");
+			bw.write(v + " |");
 			for(DefaultEdge aresta : arestas) {
 				String inicio = g.getEdgeSource(aresta);
 				String fim = g.getEdgeTarget(aresta);
 				if(inicio.equals(v) || fim.equals(v)) {
-					System.out.print(" 1  |");
+					bw.write(" 1  |");
 				} else {
-					System.out.print(" 0  |");
+					bw.write(" 0  |");
 				}
 			}
-			System.out.println("");
+			bw.newLine();
 		}
+		bw.close();
+		fw.close();
 	}
 
 	/**
