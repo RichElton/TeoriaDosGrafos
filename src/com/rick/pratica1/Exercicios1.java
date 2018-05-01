@@ -16,7 +16,7 @@ import org.jgrapht.graph.SimpleGraph;
  * @author Rich Elton - 117210710
  *
  */
-public class Exericios1 {
+public class Exercicios1 {
 
 	/**
 	 * Método principal.
