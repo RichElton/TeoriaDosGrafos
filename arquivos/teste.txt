@@ -1,0 +1,19 @@
+QUESTÂO 1:
+  |ab  |bc  |bd  |be  |ce  |cd  |ed  |df  |ef
+a | 1  | 0  | 0  | 0  | 0  | 0  | 0  | 0  | 0  |
+b | 1  | 1  | 1  | 1  | 0  | 0  | 0  | 0  | 0  |
+c | 0  | 1  | 0  | 0  | 1  | 1  | 0  | 0  | 0  |
+d | 0  | 0  | 1  | 0  | 0  | 1  | 1  | 1  | 0  |
+e | 0  | 0  | 0  | 1  | 1  | 0  | 1  | 0  | 1  |
+f | 0  | 0  | 0  | 0  | 0  | 0  | 0  | 1  | 1  |
+---------------
+QUESTÂO 2:
+Distância de 'a' --> 'd': 
+
+Menor Caminho: [(a : g), (g : i), (i : e), (d : e)]
+Quantidade de arestas: 4
+Valor caminho: 7.0
+---------------
+QUESTÂO 3:
+N�o � bipartido
+---------------

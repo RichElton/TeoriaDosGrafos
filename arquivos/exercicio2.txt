@@ -1,0 +1,5 @@
+Distância de 'a' --> 'd': 
+
+Menor Caminho: [(a : g), (g : i), (i : e), (d : e)]
+Quantidade de arestas: 4
+Valor caminho: 7.0

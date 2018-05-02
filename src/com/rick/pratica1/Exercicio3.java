@@ -1,5 +1,9 @@
 package com.rick.pratica1;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 import org.jgrapht.Graph;
 import org.jgrapht.alg.cycle.PatonCycleBase;
@@ -7,7 +11,7 @@ import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.graph.SimpleGraph;
 
 /**
- * Classe responsável por resolver a questão 3(1º lista de exerício pratica) da disciplina
+ * Classe responsï¿½vel por resolver a questï¿½o 3(1ï¿½ lista de exerï¿½cio pratica) da disciplina
  * de teoria dos grafos.
  * 
  * @author Rich Elton - 117210710
@@ -16,11 +20,12 @@ import org.jgrapht.graph.SimpleGraph;
 public class Exercicio3 {
 
 	/**
-	 * Método principal.
+	 * Mï¿½todo principal.
 	 * 
-	 * @param args : Nunca é usada.
+	 * @param args : Nunca ï¿½ usada.
+	 * @throws IOException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		
 		/**
 		 * Criando um grafo simples.
@@ -35,22 +40,31 @@ public class Exercicio3 {
 		
 		/**
 		 * Uma lista que tem outra lista de string dentro dela.
-		 * O objeto 'cycleBase' tem o método 'findCycleBase()' que retorna uma lista de string.
-		 * Essa lista de string são todos os ciclos do grafo.
+		 * O objeto 'cycleBase' tem o mï¿½todo 'findCycleBase()' que retorna uma lista de string.
+		 * Essa lista de string sï¿½o todos os ciclos do grafo.
 		 */
 		List<List<String>> circulos = cycleBase.findCycleBase();
 		
+		String caminho = new File("").getAbsolutePath()+"/arquivos/exercicio3.txt";
+		FileWriter fw = new FileWriter(caminho);
+		BufferedWriter bw = new BufferedWriter(fw);
+		
+		
 		if(ehBipartido(circulos)) {
-			System.out.println("É bipartido");
+			bw.write("ï¿½ bipartido");
 		} else {
-			System.out.println("Não é bipartido");
+			bw.write("Nï¿½o ï¿½ bipartido");
 		}
+		bw.close();
+		
+		System.out.println("Terminou!");
+		System.out.println("Verifique o arquivo 'exercicio3.txt' na pasta arquivos.");
 	}
 
 	/**
-	 * Método que verifica se um grafo, a partir de todos os seus ciclos, é bipartido ou não.
+	 * Mï¿½todo que verifica se um grafo, a partir de todos os seus ciclos, ï¿½ bipartido ou nï¿½o.
 	 * 
-	 * @param circulos : List<List<String>> são todos os círculos desse grafo.
+	 * @param circulos : List<List<String>> sï¿½o todos os cï¿½rculos desse grafo.
 	 * @return : true ou false.
 	 */
 	private static boolean ehBipartido(List<List<String>> circulos) {
@@ -63,7 +77,7 @@ public class Exercicio3 {
 	}
 
 	/**
-	 * Método para criar o grafo.
+	 * Mï¿½todo para criar o grafo.
 	 * 
 	 * @return : Graph<String, DefaultEdge>.
 	 */

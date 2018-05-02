@@ -1,12 +1,16 @@
 package com.rick.pratica1;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+
 import org.jgrapht.GraphPath;
 import org.jgrapht.alg.shortestpath.DijkstraShortestPath;
 import org.jgrapht.graph.DefaultWeightedEdge;
 import org.jgrapht.graph.SimpleWeightedGraph;
 
 /**
- * Classe responsável por resolver a questão 2(1º lista de exerício pratica) da disciplina
+ * Classe responsï¿½vel por resolver a questï¿½o 2(1ï¿½ lista de exerï¿½cio pratica) da disciplina
  * de teoria dos grafos.
  * 
  * @author Rich Elton - 117210710
@@ -15,11 +19,11 @@ import org.jgrapht.graph.SimpleWeightedGraph;
 public class Exercicio2 {
 	
 	/**
-	 * Método principal.
+	 * Mï¿½todo principal.
 	 * 
-	 * @param args : Nunca é usada.
+	 * @param args : Nunca ï¿½ usada.
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception{
 		
 		/**
 		 * Crio o grafo ponderado.
@@ -32,13 +36,26 @@ public class Exercicio2 {
 		DijkstraShortestPath<String, DefaultWeightedEdge> path = new DijkstraShortestPath<>(grafo);
 		GraphPath<String, DefaultWeightedEdge> menorCaminho = path.getPath("a", "d");
 		
-		System.out.println("Menor Caminho: " + menorCaminho.toString());
-		System.out.println("Quantidade de arestas: " + menorCaminho.getLength());
-		System.out.println("Valor caminho: " + menorCaminho.getWeight());
+		String caminho = new File("").getAbsolutePath()+"/arquivos/exercicio2.txt";
+		FileWriter fl = new FileWriter(caminho);
+		BufferedWriter bw = new BufferedWriter(fl);
+		
+		bw.write("DistÃ¢ncia de 'a' --> 'd': \n");
+		bw.newLine();
+		bw.write("Menor Caminho: " + menorCaminho.toString());
+		bw.newLine();
+		bw.write("Quantidade de arestas: " + menorCaminho.getLength());
+		bw.newLine();
+		bw.write("Valor caminho: " + menorCaminho.getWeight());
+		bw.close();
+		fl.close();
+		
+		System.out.println("Terminou!");
+		System.out.println("Verifique o arquivo 'exercicio2.txt' na pasta arquivos.");
 	}
 
 	/**
-	 * Método que cria o grafo correspondente no exercício 2.
+	 * Mï¿½todo que cria o grafo correspondente no exercï¿½cio 2.
 	 * 
 	 * @return : Um grafo ponderado(SimpleWeightedGraph<String, DefaultWeightedEdge>).
 	 */

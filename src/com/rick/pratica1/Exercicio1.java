@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -14,7 +15,7 @@ import org.jgrapht.Graph;
 import org.jgrapht.graph.SimpleGraph;
 
 /**
- * Classe responsável pela resolução da questão 1(1º lista de exerício pratica) da disciplina
+ * Classe responsï¿½vel pela resoluï¿½ï¿½o da questï¿½o 1(1ï¿½ lista de exerï¿½cio pratica) da disciplina
  * Teoria dos grafos.
  * 
  * @author Rich Elton - 117210710
@@ -23,18 +24,18 @@ import org.jgrapht.graph.SimpleGraph;
 public class Exercicio1 {
 
 	/**
-	 * Método principal.
+	 * Mï¿½todo principal.
 	 * 
-	 * @param args : Nunca é usado.
+	 * @param args : Nunca ï¿½ usado.
 	 */
 	public static void main(String[] args) throws Exception {
 		/**
-		 * Chamo a função que vai criar e retornar meu grafo.
+		 * Chama a funï¿½ï¿½o que vai criar e retornar meu grafo.
 		 */
 		Graph<String, DefaultEdge> grafo = criarGrafo();
 		
 		/**
-		 * Chama a função que vai procurar minha matriz de incidência.
+		 * Chama a funï¿½ï¿½o que vai procurar minha matriz de incidï¿½ncia.
 		 */
 		achaMatrizIncidencia(grafo);
 		
@@ -43,9 +44,9 @@ public class Exercicio1 {
 	}
 	
 	/**
-	 * Método que vai achar minha matriz incidência de um grafo.
+	 * Mï¿½todo que vai achar minha matriz incidï¿½ncia de um grafo.
 	 * 
-	 * @param g : Grafo na qual eu quero achar a matriz de incidência.
+	 * @param g : Grafo na qual eu quero achar a matriz de incidï¿½ncia.
 	 * @throws IOException 
 	 */
 	private static void achaMatrizIncidencia(Graph<String, DefaultEdge> g) throws IOException {
@@ -75,14 +76,14 @@ public class Exercicio1 {
 		Collections.sort(listaVertices);
 		
 		/**
-		 * Função que vai imprimir minha matriz.
+		 * Funï¿½ï¿½o que vai imprimir minha matriz.
 		 */
 		constroiMatriz(g, listaVertices, iterator);
 		
 	}
 	
 	/**
-	 * Método que vai escrever minha matriz de incidência no meu arquivo 'exercicio1.txt'.
+	 * Mï¿½todo que vai escrever minha matriz de incidï¿½ncia no meu arquivo 'exercicio1.txt'.
 	 * @param g : Graph<String, DefaultEdge>.
 	 * @param listaVertices : List<String>.
 	 * @param iterator : Iterator<DefaultEdge>.
@@ -100,12 +101,13 @@ public class Exercicio1 {
 		}
 		
 		/**
-		 * Pego o caminho até o meu projeto e concateno com a pasta do meu arquivo. 
+		 * Pego o caminho atï¿½ o meu projeto e concateno com a pasta do meu arquivo. 
 		 */
 		String caminho = new File("").getAbsolutePath()+"/arquivos/exercicio1.txt";
 		File fl = new File(caminho);
 		FileWriter fw = new FileWriter(fl);
 		BufferedWriter bw = new BufferedWriter(fw);
+		
 		
 		/**
 		 * Escrevo no meu arquivo o inicio e o fim de cada aresta do meu grafo.
@@ -119,8 +121,8 @@ public class Exercicio1 {
 		
 		/**
 		 * Pego cada vertice e cada aresta(inicio e fim) e comparo se um dos terminais da
-		 * aresta é igual ao meu vertice.
-		 * Se for, imprimo "1", caso contrário imprimo "0".
+		 * aresta ï¿½ igual ao meu vertice.
+		 * Se for, imprimo "1", caso contrï¿½rio imprimo "0".
 		 */
 		for(String v : listaVertices) {
 			bw.write(v + " |");
@@ -140,7 +142,7 @@ public class Exercicio1 {
 	}
 
 	/**
-	 * Método que irá criar um grafo.
+	 * Mï¿½todo que irï¿½ criar um grafo.
 	 * 
 	 * @return : Um grafo(Graph<String, DefaultEdge>)
 	 */
