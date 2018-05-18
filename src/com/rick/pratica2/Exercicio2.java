@@ -1,32 +1,51 @@
 package com.rick.pratica2;
 
 import org.jgrapht.alg.ConnectivityInspector;
-import org.jgraph.graph.DefaultEdge;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Set;
+
 import org.jgrapht.Graph;
-import org.jgrapht.graph.SimpleGraph;
 
 public class Exercicio2 {
 	
 	public static void main(String[] args) {
-		Graph<DefaultEdge, String> grafo = criaGrafo();
+		Graph<Object, RelationshipEdge> grafo = ImportGraphGML.importaGrafo();
 		
-		ConnectivityInspector c = new ConnectivityInspector<>(grafo);
-		
-		System.out.println(c.isGraphConnected());
-		System.out.println(c.pathExists("a", "c"));
-		System.out.println(c.connectedSets());
+		Object vInicio = null;
+		for(Object a : grafo.vertexSet()) {
+			if(a.toString().equals("C")) {
+				vInicio = a;
+				break;
+			}
+		}
 	}
 	
-	public static Graph<DefaultEdge, String> criaGrafo(){
+	public static ArrayList<RelationshipEdge> algFleury(Graph<Object, RelationshipEdge> grafo, Object v){		
+		ArrayList<RelationshipEdge> saida = new ArrayList<>();
+		ArrayList verticesUsados = new ArrayList();
 		
-		Graph grafo = new SimpleGraph<>(DefaultEdge.class);
-		grafo.addVertex("a");	grafo.addVertex("b");	grafo.addVertex("c");
-		grafo.addVertex("d");   grafo.addVertex("e");  grafo.addVertex("f");
+		Graph<Object, RelationshipEdge> gCopia = grafo;
+		Object vertice = v;
+		verticesUsados.add(vertice);
 		
-		grafo.addEdge("a", "b");	grafo.addEdge("a", "c");
-		grafo.addEdge("b", "c");	grafo.addEdge("d", "e");
-		grafo.addEdge("d", "f");	grafo.addEdge("f", "e");
-		return grafo;
-	}
+		ConnectivityInspector<Object, RelationshipEdge> c = new ConnectivityInspector<Object, RelationshipEdge>(gCopia);
 
+		
+		Set<RelationshipEdge> arestas = gCopia.edgeSet();
+		Iterator<RelationshipEdge> it = arestas.iterator();
+		
+		while (it.hasNext()) {
+			Object vi = (Object) verticesUsados.get(verticesUsados.size()-1);
+			if (gCopia.inDegreeOf(vi) == 1) {
+				Set<RelationshipEdge> ai = gCopia.edgesOf(vi);
+			} else {
+				
+			}
+		}
+		
+		
+		return saida;
+	}
+	
 }
