@@ -1,5 +1,7 @@
 package com.rick.pratica2;
 
+import java.io.File;
+
 import org.jgrapht.Graph;
 import org.jgrapht.graph.SimpleGraph;
 import org.jgrapht.io.GmlImporter;
@@ -14,7 +16,8 @@ public class ImportGraphGML {
         GmlImporter <Object,RelationshipEdge> gmlImporter = new GmlImporter <> (vp1,ep1);
         Graph<Object, RelationshipEdge> graphgml = new SimpleGraph<>(RelationshipEdge.class);
         try {
-        	gmlImporter.importGraph(graphgml, ImportGraph.readFile("F:\\richr\\Documents\\TeoriaDosGrafos\\src\\com\\rick\\pratica2\\rede.gml"));
+        	String caminho = new File("").getAbsolutePath()+"/rede.gml";
+        	gmlImporter.importGraph(graphgml, ImportGraph.readFile(caminho));
         } catch (ImportException e) {
         	throw new RuntimeException(e);
         }
