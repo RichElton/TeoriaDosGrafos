@@ -27,6 +27,7 @@ public class Exercicio2 {
 	public static boolean verticePonte(Graph<Object, RelationshipEdge> grafo, Object vertice) {
 		PatonCycleBase cb = new PatonCycleBase<>(grafo);
 		
+		// 	outgoingEdgesOf()--> VErificar
 		ArrayList<ArrayList<Object>> ciclos = (ArrayList<ArrayList<Object>>) cb.findCycleBase();
 		for(ArrayList<Object> lista : ciclos) {
 			for(Object a : lista) {
@@ -55,6 +56,7 @@ public class Exercicio2 {
 		ConnectivityInspector<Object, RelationshipEdge> c = new ConnectivityInspector<Object, RelationshipEdge>(gCopia);
 		Set<RelationshipEdge> arestas = gCopia.edgeSet();
 		Iterator<RelationshipEdge> it = arestas.iterator();
+		
 		
 		while (it.hasNext()) {
 			Object vi = (Object) verticesUsados.get(verticesUsados.size()-1);
