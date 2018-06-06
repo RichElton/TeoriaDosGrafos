@@ -37,7 +37,7 @@ public class Exercicio2 {
 		// Criando arquivo de escrita(txt).
 		String caminho = new File("").getAbsolutePath()+"/arquivos/pratica2-ex2.txt";
 		principal = new BufferedWriter(new FileWriter(caminho));
-		principal.write("Questão 2 da pratica 2 - Teoria dos Grafos.\n");
+		principal.write("Questão 2 da pratica 2 - Teoria dos Grafos: " + caminho + "\n");
 		
 		hz = new HierholzerEulerianCycle<>();
 		Graph<Object, RelationshipEdge> grafo = ImportGraphGML.importaGrafo();
@@ -94,6 +94,6 @@ public class Exercicio2 {
 			a--;
 		}
 		System.out.println(caminho);
-		principal.write("Caminho: " + caminho.toString());
+		principal.write("\nCaminho: " + caminho.toString());
 	}
 }

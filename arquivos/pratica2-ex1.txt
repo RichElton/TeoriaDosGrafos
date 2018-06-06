@@ -1,0 +1,3 @@
+Questão 1 da pratica 2 de grafos: /home/richecr/TeoriaDosGrafos/arquivos/pratica2-ex1.txt
+
+O melhor layout para a visualização do grafo da planilha 'airlineAA.xlsx' é o layout circular, pois além de facilitar a visualização do grafo, facilita também para ver quais os aeroportos chegam em outros aeroportos e quais os caminhos possivéis e os menores caminhos, assim podendo visualizar qual o melhor trajeto saindo de um determinado aeroporto para outro.
