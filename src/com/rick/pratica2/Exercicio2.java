@@ -7,11 +7,31 @@ import java.util.ArrayList;
 import java.util.List;
 import org.jgrapht.Graph;
 
+/**
+ * Classe responsável por resolver o problema da questão 2 da pratica 2 da disciplina de Teoria dos
+ * Grafos.
+ * 
+ * @author Rich Elton
+ *
+ */
 public class Exercicio2 {
 	
+	/**
+	 * Atributo estatico responsável por saber se o grafo possui um ciclo de Euler, e se sim qual
+	 * o caminho do ciclo.
+	 */
 	private static HierholzerEulerianCycle<Object, RelationshipEdge> hz;
+	/**
+	 * Atributo estatico responsavel pela escrita no meu arquivo de texto.
+	 */
 	private static BufferedWriter principal;
 	
+	/**
+	 * Método principal da minha classe.
+	 * 
+	 * @param args Não é utilizada.
+	 * @throws IOException Caso aconteça alguma exceção na escrita no meu arquivo de texto("pratica2-ex2.txt").
+	 */
 	public static void main(String[] args) throws IOException {
 		
 		// Criando arquivo de escrita(txt).
@@ -35,6 +55,7 @@ public class Exercicio2 {
 	 * Função que acha o ciclo Euler de um grafo saindo de um determinado ponto.
 	 * @param grafo Grafo na qual você quer achar o ciclo.
 	 * @param vertice O vertice inicial.
+	 * @throws IOException Caso aconteça alguma exceção na escrita no meu arquivo de texto("pratica2-ex2.txt")
 	 */
 	public static void achaCicloEuler(Graph<Object, RelationshipEdge> grafo, String vertice) throws IOException {
 		
