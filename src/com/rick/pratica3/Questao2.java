@@ -2,13 +2,13 @@ package com.rick.pratica3;
 
 import java.io.File;
 
-public class Main {
+public class Questao2 {
 
 	public static void main(String[] args) {
 		String c = new File("").getAbsolutePath()+"/rede.gml";
 		MetricasDoGrafo metricas = new MetricasDoGrafo(c);
 		
-		/*
+		/* imprimir um por vez
 		// Metricas(Closseness, alpha e Betweeness)..
 		metricas.metricasDosVertices();
 		
@@ -19,7 +19,7 @@ public class Main {
 		metricas.cliques();
 		*/
 		
-		// Imprimir tudo de uma vez.
+		// OU Imprimir tudo de uma vez.
 		metricas.verTudo();
 
 	}
