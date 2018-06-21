@@ -9,6 +9,8 @@ import org.jgrapht.io.EdgeProvider;
 import org.jgrapht.io.ImportException;
 import org.jgrapht.io.VertexProvider;
  
+import com.rick.classesusadas.*;
+
 public class ImportGraphGML {
 	public static Graph<Object, RelationshipEdge> importaGrafo() {
         VertexProvider <Object> vp1 = (label,attributes) -> new DefaultVertex(label,attributes);

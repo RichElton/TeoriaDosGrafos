@@ -1,4 +1,4 @@
-package com.rick.pratica2;
+package com.rick.classesusadas;
 
 import java.util.Map;
 import org.jgrapht.graph.DefaultEdge;
@@ -6,7 +6,7 @@ import org.jgrapht.io.Attribute;
  
  
 public class RelationshipEdge extends DefaultEdge {
-    // Arestas com labels e demais atributos - Grafos Não-direcionados 
+    // Arestas com labels e demais atributos - Grafos Nï¿½o-direcionados 
     static final long serialVersionUID = 0;
     private Object v1;
     private Object v2;

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.jgrapht.Graph;
 
+import com.rick.classesusadas.*;
 /**
  * Classe responsável por resolver o problema da questão 2 da pratica 2 da disciplina de Teoria dos
  * Grafos.

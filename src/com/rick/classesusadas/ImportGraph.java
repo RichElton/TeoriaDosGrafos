@@ -1,10 +1,10 @@
-package com.rick.pratica2;
+package com.rick.classesusadas;
 
 import java.io.*;
 
 public class ImportGraph <V,E,VP,EP> {
     // Leitura de Arquivo Texto retornando um StringReader que й entrada para a importaзгo de grafos
-    static StringReader readFile (String filename) {
+    public static StringReader readFile (String filename) {
         StringBuilder contentBuilder = new StringBuilder();
         try (BufferedReader br = new BufferedReader(new FileReader(filename)))
         {

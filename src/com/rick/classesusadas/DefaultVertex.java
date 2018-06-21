@@ -1,4 +1,4 @@
-package com.rick.pratica2;
+package com.rick.classesusadas;
 
 import java.io.Serializable;
 import java.util.Map;
@@ -8,7 +8,7 @@ public class DefaultVertex implements Serializable {
  
     private static final long serialVersionUID = 1L;
      
-    // Vértices com id e label
+    // Vï¿½rtices com id e label
     private Object id;
     private Map <String,Attribute> att;
          
