@@ -1,4 +1,4 @@
-package com.rick.classesusadas;
+package com.rick.classesimportantes;
 
 import java.io.Serializable;
 import java.util.Map;

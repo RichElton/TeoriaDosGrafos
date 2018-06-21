@@ -23,43 +23,84 @@ import org.jgrapht.io.ImportException;
 import org.jgrapht.io.VertexProvider;
 import org.jgrapht.traverse.BreadthFirstIterator;
 
-import com.rick.classesusadas.*;
+import com.rick.classesimportantes.*;
 
-public class Questao2 {
-    public static void main(String[] args) {
-    	
-    	// Importando  grafo.
-    	Graph<DefaultVertex, RelationshipEdge> graphgml = importarGrafo();
-         
-        // Metrica - Closeness Centrality.
+/**
+ * Classe responsavel por acha metricas de um determinado grafo.
+ * 
+ * @author Rich Ramalho
+ *
+ */
+public class MetricasDoGrafo {
+	
+	private Graph<DefaultVertex, RelationshipEdge> grafoGml;
+	
+	/**
+	 * Construtor.
+	 * 
+	 * @param caminhoGrafo Caminho para o grafo(.gml)
+	 */
+	public MetricasDoGrafo(String caminhoGrafo) {
+		// Importando  grafo.
+    	grafoGml = importarGrafo(caminhoGrafo);
+	}
+	
+	public void verTudo() {
+		// Metricas(Closseness, alpha e Betweeness)..
+		this.metricasDosVertices();
+		
+		// Coeficiente de Clustering, diametro e distancia.
+		this.metricasDoGrafo();
+		
+		// Cliques.
+		this.cliques();
+	}
+    
+	/**
+	 * Metodo que imprime os cliques maximais do meu grafo.
+	 * 
+	 */
+    public void cliques() {
+        System.out.println("\nCliques: ");
+        Clique clique = new Clique(grafoGml);
+        clique.cliques();
+    }
+    
+    /**
+     * Metodo que imprime as metricas de cada vertice do meu grafo(Closseness, alpha e Betweeness).
+     * 
+     */
+    public void metricasDosVertices() {
+		// Metrica - Closeness Centrality.
     	System.out.println("-CLOSENESS CENTRALITY- ");
-        ClosenessCentrality <DefaultVertex, RelationshipEdge> cc = 
-                new ClosenessCentrality <> (graphgml);
+        ClosenessCentrality <DefaultVertex, RelationshipEdge> cc = new ClosenessCentrality <> (grafoGml);
         printOrderedDouble(cc.getScores());
         
-     // Metrica - ALPHA CENTRALITY.
+        // Metrica - ALPHA CENTRALITY.
         System.out.println("\n\n-ALPHA CENTRALITY- ");
-        AlphaCentrality <DefaultVertex, RelationshipEdge> ac = 
-                new AlphaCentrality <> (graphgml,0.1);
+        AlphaCentrality <DefaultVertex, RelationshipEdge> ac = new AlphaCentrality <> (grafoGml,0.1);
         printOrderedDouble (ac.getScores());
         
         // Metrica - BETWEENESS CENTRALITY.
         System.out.println("\n\n-BETWEENESS CENTRALITY- ");
-        BetweennessCentrality <DefaultVertex, RelationshipEdge> bc = 
-                new BetweennessCentrality <> (graphgml,true);
+        BetweennessCentrality <DefaultVertex, RelationshipEdge> bc = new BetweennessCentrality <> (grafoGml,true);
         printOrderedDouble (bc.getScores());
-        
-        // Coeficiente de Clustering.
-        double triplets = get_NTriplets(graphgml);
-        System.out.println("\n\nN. Triplets: " + triplets);
-        double triangles = get_NTriangles(graphgml);
-        System.out.println("\nN. Triangles: " + triangles);
+	}
+    
+    /**
+     * Metodo que imprime as metricas para o meu grafo.
+     */
+    public void metricasDoGrafo() {
+    	
+    	// Coeficiente de Clustering.
+        double triplets = get_NTriplets(grafoGml);
+        double triangles = get_NTriangles(grafoGml);
         double coefCluster = 3*triangles/triplets;
-        System.out.println("\nCLUSTERING COEFFICIENT: " + new Double(coefCluster));
+        System.out.println("\n\nCoeficiente de CLUSTERING: " + new Double(coefCluster));
         
-        // Diametro e Distancia.
+    	// Diametro e Distancia.
         int diameter = 0;
-        ArrayList <Integer> a = get_allpathLenghts(graphgml);
+        ArrayList <Integer> a = get_allpathLenghts(grafoGml);
             int sum = 0;
         for(int i=0; i < a.size() ; i++) {
               sum = sum + a.get(i);
@@ -68,19 +109,24 @@ public class Questao2 {
              }
         }
         double average = sum / a.size();
-        System.out.println("DISTANCE: " + average);
-        System.out.println("DIAMETER: " + diameter);
+        System.out.println("\nDISTANCE: " + average);
+        System.out.println("\nDIAMETER: " + diameter);
     }
     
-    public static Graph<DefaultVertex, RelationshipEdge> importarGrafo(){
-    	// Import GML
+    /**
+     * Importa o grafo .gml
+     * 
+     * @param caminho Caminho na qual o grafo se encontra.
+     * @return O grafo
+     */
+    private static Graph<DefaultVertex, RelationshipEdge> importarGrafo(String caminho){
+    	// Importa o grafo GML
         Graph<DefaultVertex, RelationshipEdge> graphgml = new SimpleGraph<>(RelationshipEdge.class);
         
         VertexProvider <DefaultVertex> vp1 = (label,attributes) -> new DefaultVertex (label,attributes);
         EdgeProvider <DefaultVertex,RelationshipEdge> ep1 = (from,to,label,attributes) -> new RelationshipEdge(from,to,attributes);
         GmlImporter <DefaultVertex,RelationshipEdge> gmlImporter = new GmlImporter <> (vp1,ep1);
         try {
-        	String caminho = new File("").getAbsolutePath()+"/rede.gml";
             gmlImporter.importGraph(graphgml, 
                     ImportGraph.readFile(caminho));
           } catch (ImportException e) {
@@ -90,7 +136,7 @@ public class Questao2 {
     }
  
     // Métodos Auxiliares
-    static int fact (int n) {
+    private static int fact (int n) {
         if (n == 1 || n == 0) {
             return 1;
         } else {
@@ -98,7 +144,7 @@ public class Questao2 {
         }
     }
      
-    static <V> void printOrderedDouble (Map <V,Double> M) {
+    private static <V> void printOrderedDouble (Map <V,Double> M) {
         Set<Entry<V, Double>> set = M.entrySet();
         List<Entry<V, Double>> list = new ArrayList<Entry<V, Double>>(set);
         Collections.sort( list, new Comparator<Map.Entry<V, Double>>()
@@ -113,11 +159,10 @@ public class Questao2 {
         }   
     }
      
-    static <V,E> double get_NTriplets (Graph <V, E> g) {
+    private static <V,E> double get_NTriplets (Graph <V, E> g) {
      
         double triplets = 0;
-        BreadthFirstIterator <V,E> cfi = 
-                new BreadthFirstIterator <> (g);
+        BreadthFirstIterator <V,E> cfi = new BreadthFirstIterator <> (g);
         while (cfi.hasNext()) {
             V v = cfi.next();
             int n = (g.edgesOf(v)).size();
@@ -128,7 +173,7 @@ public class Questao2 {
         return triplets;
     }
      
-    static <V,E> double get_NTriangles (Graph <V,E> g) {
+    private static <V,E> double get_NTriangles (Graph <V,E> g) {
         double triangles = 0;
         PatonCycleBase <V,E> pc = new PatonCycleBase <> (g);
         Iterator <List<E>> it2 = ((pc.getCycleBasis()).getCycles()).iterator();
@@ -141,7 +186,7 @@ public class Questao2 {
         return triangles;
     }
      
-    static <V,E> double calculateAssortativityCoefficient (Graph <V, E> graph) {
+    private static <V,E> double calculateAssortativityCoefficient (Graph <V, E> graph) {
         // from: https://github.com/Infeligo/jgrapht-metrics/blob/master/src/main/java/org/jgrapht/metrics/AssortativityCoefficientMetric.java
         double edgeCount = graph.edgeSet().size();
         double n1 = 0, n2 = 0, dn = 0;
@@ -161,7 +206,7 @@ public class Questao2 {
         return (n1 - n2) / (dn - n2);
     }
      
-    static <V,E> ArrayList <Integer> get_allpathLenghts (Graph <V,E> g) {
+    private static <V,E> ArrayList <Integer> get_allpathLenghts (Graph <V,E> g) {
         DijkstraShortestPath <V,E>  p = new DijkstraShortestPath <> (g);
         ArrayList <Integer> a = new ArrayList <Integer> ();
         BreadthFirstIterator <V,E> pf = new BreadthFirstIterator <> (g);

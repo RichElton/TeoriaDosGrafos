@@ -1,4 +1,5 @@
-package com.rick.classesusadas;
+package com.rick.classesimportantes;
+
 
 import java.util.Map;
 import org.jgrapht.graph.DefaultEdge;

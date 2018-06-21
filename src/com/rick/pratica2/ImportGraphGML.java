@@ -9,7 +9,7 @@ import org.jgrapht.io.EdgeProvider;
 import org.jgrapht.io.ImportException;
 import org.jgrapht.io.VertexProvider;
  
-import com.rick.classesusadas.*;
+import com.rick.classesimportantes.*;
 
 public class ImportGraphGML {
 	public static Graph<Object, RelationshipEdge> importaGrafo() {
