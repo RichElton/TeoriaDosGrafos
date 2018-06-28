@@ -3,5 +3,17 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry excluding="com/rick/pratica2/Hier.java" kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JGraphT"/>
+	<classpathentry kind="lib" path="F:/richr/Documents/TeoriaDosGrafos/lib/antlr4-runtime-4.7.jar"/>
+	<classpathentry kind="lib" path="F:/richr/Documents/TeoriaDosGrafos/lib/commons-lang3-3.5.jar"/>
+	<classpathentry kind="lib" path="F:/richr/Documents/TeoriaDosGrafos/lib/guava-24.1-jre.jar"/>
+	<classpathentry kind="lib" path="F:/richr/Documents/TeoriaDosGrafos/lib/jgrapht-core-1.2.0.jar"/>
+	<classpathentry kind="lib" path="F:/richr/Documents/TeoriaDosGrafos/lib/jgrapht-demo-1.2.0.jar"/>
+	<classpathentry kind="lib" path="F:/richr/Documents/TeoriaDosGrafos/lib/jgrapht-ext-1.2.0.jar"/>
+	<classpathentry kind="lib" path="F:/richr/Documents/TeoriaDosGrafos/lib/jgrapht-ext-1.2.0-uber.jar"/>
+	<classpathentry kind="lib" path="F:/richr/Documents/TeoriaDosGrafos/lib/jgrapht-guava-1.2.0.jar"/>
+	<classpathentry kind="lib" path="F:/richr/Documents/TeoriaDosGrafos/lib/jgrapht-guava-1.2.0-uber.jar"/>
+	<classpathentry kind="lib" path="F:/richr/Documents/TeoriaDosGrafos/lib/jgrapht-io-1.2.0.jar"/>
+	<classpathentry kind="lib" path="F:/richr/Documents/TeoriaDosGrafos/lib/jgrapht-io-1.2.0-uber.jar"/>
+	<classpathentry kind="lib" path="F:/richr/Documents/TeoriaDosGrafos/lib/jgraphx-3.4.1.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
