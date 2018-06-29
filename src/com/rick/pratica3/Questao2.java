@@ -23,5 +23,4 @@ public class Questao2 {
 		metricas.verTudo();
 
 	}
-
 }
