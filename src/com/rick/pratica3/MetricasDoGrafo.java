@@ -92,10 +92,10 @@ public class MetricasDoGrafo {
      */
     public void metricasDoGrafo() {
     	
-    	// Coeficiente de Clustering.
+    	// Coeficiente de Clustering global.
         double triplets = get_NTriplets(grafoGml);
         double triangles = get_NTriangles(grafoGml);
-        double coefCluster = 3*triangles/triplets;
+        double coefCluster = (3*triangles)/triplets;
         System.out.println("\n\nCoeficiente de CLUSTERING: " + new Double(coefCluster));
         
     	// Diametro e Distancia.
