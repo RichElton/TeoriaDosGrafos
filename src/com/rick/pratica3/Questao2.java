@@ -5,7 +5,7 @@ import java.io.File;
 public class Questao2 {
 
 	public static void main(String[] args) {
-		String c = new File("").getAbsolutePath()+"/teia.gml";
+		String c = new File("").getAbsolutePath()+"/src/com/rick/pratica3/teia.gml";
 		MetricasDoGrafo metricas = new MetricasDoGrafo(c);
 		
 		/* imprimir um por vez
