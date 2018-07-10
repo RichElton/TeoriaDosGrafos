@@ -1,0 +1,5 @@
+QUESTAO 1:
+O grafo pode ser dividido em dois grupos, usando o yEd(Pela imagem grafica). O criterio de
+agrupamento foi o "natural clusters" e depois colocamos o layout circular. Onde se obtive uma 
+melhor visualizacao das conexoes do grafo, facilitando assim a visualizacao das conexoes entre
+os vertices.

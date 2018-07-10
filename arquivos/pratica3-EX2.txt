@@ -1,0 +1,16 @@
+QUESTAO 1:
+Nao. Pois pelo programa executado o coeficiente de clustering é zero. E esse coeficiente
+mede o grau que os vertices do grafo tendem a se organizar em clusters, portanto como é zero
+o grafo nao possui tendencias a formacao de clusters.
+
+QUESTAO 2:
+Os vertices com nomes "Odebrecht" e "Petrobras" sao entidades intermediadoras das transacoes.
+Pois pelo programa o vertice "Odebrecht" tem valor de 0,65 na metrica closeness centrality que
+quanto mais proximo de 1, mais centrado o vertice eh(Mais proximos dos outros vertices). E o vertice
+"Petrobras", pois pelo programa o vertice tem valor de 0,12 na metrica de betweeness centrality, como
+eh o maior do grafo, entao ele esta entre os menores caminhos entre todos os outros pares de vertices do grafo.
+
+QUESTAO 3:
+Os vertices que sao entidades mais influentes sao: "Odebrecht", "Queiroz Galvao" e "UTC", pois possuem valores,
+respectivamente, 358.57, 336.42 e 328.32 na metrica alpha centrality, entao como sao os maiores valores
+sao os mais influentes do grafo.
